@@ -29,7 +29,7 @@ This project demonstrates how to build a fully interactive data dashboard in Pyt
 
 ## 🗃️ Dataset
 
-The project uses a CSV dataset (`sample_data.csv`) containing sample sales records:
+The project uses a CSV dataset (`sample_data.csv(2)`) containing sample sales records:
 
 Date,Region,Category,Sales,Profit
 2023-01-01,North,Electronics,5000,800
