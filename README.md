@@ -46,8 +46,7 @@ Date,Region,Category,Sales,Profit
 
 1. Clone this repository or download the ZIP:
 
-git clone https://github.com/your-username/interactive-dashboard.git
-cd interactive-dashboard
+git clone : (https://github.com/MANISHA-K1230/INTERNSHIP3-DASHBOARD-DEVELOPEMENT)
 
 
 2. Install the required packages:
