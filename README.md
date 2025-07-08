@@ -84,5 +84,5 @@ interactive-dashboard/
 
 ## 👩‍💻 Author
 
-**Manisha K**
+**Manisha K**-Dashboard Development internship project (codtech)
 
