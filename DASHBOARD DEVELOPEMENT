@@ -1,0 +1,45 @@
+import dash
+from dash import dcc, html
+import pandas as pd
+import plotly.express as px
+from dash.dependencies import Input, Output
+
+df = pd.read_csv('data/sample_data.csv')
+
+app = dash.Dash(__name__)
+app.title = 'Interactive Sales Dashboard'
+
+app.layout = html.Div([
+    html.H1("Sales Dashboard", style={'textAlign': 'center'}),
+    dcc.Dropdown(
+        id='region-dropdown',
+        options=[{'label': region, 'value': region} for region in df['Region'].unique()],
+        value=df['Region'].unique()[0],
+        clearable=False
+    ),
+    html.Div(id='kpis', style={'display': 'flex', 'justifyContent': 'space-around'}),
+    dcc.Graph(id='sales-graph'),
+])
+
+@app.callback(
+    [Output('kpis', 'children'),
+     Output('sales-graph', 'figure')],
+    [Input('region-dropdown', 'value')]
+)
+def update_dashboard(region):
+    filtered_df = df[df['Region'] == region]
+    total_sales = filtered_df['Sales'].sum()
+    total_profit = filtered_df['Profit'].sum()
+    avg_sales = round(filtered_df['Sales'].mean(), 2)
+
+    kpis = [
+        html.Div(f"Total Sales: ₹{total_sales}", style={'padding': '10px'}),
+        html.Div(f"Total Profit: ₹{total_profit}", style={'padding': '10px'}),
+        html.Div(f"Average Sale: ₹{avg_sales}", style={'padding': '10px'}),
+    ]
+
+    fig = px.bar(filtered_df, x='Date', y='Sales', color='Category', title='Sales Over Time')
+    return kpis, fig
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
