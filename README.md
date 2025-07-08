@@ -48,7 +48,6 @@ Date,Region,Category,Sales,Profit
 
 git clone : (https://github.com/MANISHA-K1230/INTERNSHIP3-DASHBOARD-DEVELOPEMENT)
 
-
 2. Install the required packages:
 
 pip install -r requirements.txt
