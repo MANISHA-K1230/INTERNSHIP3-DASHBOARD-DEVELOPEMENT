@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 from dash.dependencies import Input, Output
 
-df = pd.read_csv('data/sample_data.csv')
+df = pd.read_csv('sample_data.csv(2)')
 
 app = dash.Dash(__name__)
 app.title = 'Interactive Sales Dashboard'
